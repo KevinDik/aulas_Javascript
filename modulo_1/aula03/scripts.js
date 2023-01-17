@@ -1,3 +1,7 @@
+function isNumber(str) {
+    return !isNaN(str)
+}
+
 function CalcularIMC() {
     event.preventDefault();
     let nomeUsuario = nome.value.toUpperCase();
@@ -5,24 +9,29 @@ function CalcularIMC() {
     let alturaUsuario = Number(altura.value);
     let calc = pesoUsuario / (alturaUsuario * 2);
     let resultado = document.getElementById('resultado');
+
+    if (isNumber(nomeUsuario) == true) {
+        alert('Nome de usuário inválido');
+        return
+    }
     
     //console.log(isNaN(parseFloat(nome.value)) && isFinite(nome.value))
     if(nomeUsuario && pesoUsuario && alturaUsuario != 0) {
         if(calc < 18.5){
-            resultado.innerHTML = `${nomeUsuario} Você esta abaixo da media. IMC ${calc}`;
+            resultado.innerHTML = `${nomeUsuario} Você esta abaixo da media. IMC ${Math.round(calc)}`;
         } else if(18.5 >= calc < 24.9){
-            resultado.innerHTML = `${nomeUsuario} Você esta com o peso ideal. IMC ${calc}`;
+            resultado.innerHTML = `${nomeUsuario} Você esta com o peso ideal. IMC ${Math.round(calc)}`;
         } else if(25 >= calc < 29.9){
-            resultado.innerHTML = `${nomeUsuario} Você esta com sobrepeso. IMC ${calc}`;
+            resultado.innerHTML = `${nomeUsuario} Você esta com sobrepeso. IMC ${Math.round(calc)}`;
         } else if(30 >= calc < 34.9){
-            resultado.innerHTML = `${nomeUsuario} Você esta em obesidade nivel 1. IMC ${calc}`;
+            resultado.innerHTML = `${nomeUsuario} Você esta em obesidade nivel 1. IMC ${Math.round(calc)}`;
         } else if(35 >= calc < 39.9){
-            resultado.innerHTML = `${nomeUsuario} Você esta em obesidade nivel 2. IMC ${calc}`;
+            resultado.innerHTML = `${nomeUsuario} Você esta em obesidade nivel 2. IMC ${Math.round(calc)}`;
         } else if(calc > 40){
-            resultado.innerHTML = `${nomeUsuario} Você esta em obesidade nivel 3. IMC ${calc}`;
+            resultado.innerHTML = `${nomeUsuario} Você esta em obesidade nivel 3. IMC ${Math.round(calc)}`;
         }
     } else {
-        resultado.innerHTML = "Atenção, preencha todos os dados!"
+        alert('Atenção alguns dados não foram preenchidos')
         nome.focus();
-    } 
+    }     
 }  
