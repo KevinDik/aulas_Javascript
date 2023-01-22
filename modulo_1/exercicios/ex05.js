@@ -1,12 +1,18 @@
+let manha = 0;
+let tarde = 0;
+let noite = 0;
+
 function consultarEstacionamento(horario) {
+
     horario = horario.slice(0, 2)
     if (horario >= 5 && horario < 12) {
-        return console.log("Acessou no periodo manha");
+        manha += 1
     } else if (horario >= 12 && horario < 18) {
-        return console.log("Acessou no periodo tarde");
+        tarde += 1
     } else if (horario >= 18 || horario < 5) {
-        return console.log("Acessou no periodo noite");
+        noite += 1
     }
+    return console.log(`Total de acessos durante o dia foram de: Manhã ${manha} | Tarde ${tarde} | Noite ${noite}`)
 }
 
 consultarEstacionamento('05:00')
