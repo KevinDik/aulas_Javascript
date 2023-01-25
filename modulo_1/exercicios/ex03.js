@@ -1,8 +1,7 @@
-function porcentoClasse(alunosPresentes) {
+function porcentoClasse(alunosPresentes, faltaram) {
     let container = document.getElementById("container");
-    salaCheia = 19 * 0.5;
-    alunosPresentes = alunosPresentes * 0.5;
-    return container.innerHTML = `A porcentagem de alunos faltantes é de ${(salaCheia - alunosPresentes) * 10} %`;
+    let porcentagem = ((faltaram / alunosPresentes) * 100).toFixed(1)
+    return porcentagem;
 }
 
-porcentoClasse(11);
+container.innerHTML = `A porcentagem de alunos faltantes é de ${porcentoClasse(19, 8)} %`;
