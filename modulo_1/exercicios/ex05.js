@@ -3,7 +3,7 @@ let tarde = 0;
 let noite = 0;
 
 function consultarEstacionamento(horario) {
-
+    let container = document.getElementById("container");
     horario = horario.slice(0, 2)
     if (horario >= 5 && horario < 12) {
         manha += 1
@@ -12,7 +12,7 @@ function consultarEstacionamento(horario) {
     } else if (horario >= 18 || horario < 5) {
         noite += 1
     }
-    return console.log(`Total de acessos durante o dia foram de: Manhã ${manha} | Tarde ${tarde} | Noite ${noite}`)
+    return container.innerHTML = `Total de acessos durante o dia foram de: Manhã ${manha} | Tarde ${tarde} | Noite ${noite}`
 }
 
 consultarEstacionamento('05:00')
